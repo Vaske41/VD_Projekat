@@ -9,3 +9,7 @@
 .breadcrumb-item.active{
     color: gray;
 }
+
+.MuiBreadcrumbs-separator{
+    color: white;
+}
