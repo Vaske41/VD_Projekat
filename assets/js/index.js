@@ -198,7 +198,163 @@ document.addEventListener('DOMContentLoaded', () => {
         image: "assets/img/artists/isa.jpg"
     },
   ];
+  
+
+  const paintings = [
+    {
+        id : 1,
+        name : "The Night Watch",
+        artist : "Rembrandt Harmenszoon van Rijn",
+        artistId : 1,
+        price : 500,
+        age : 381,
+        pictures : ["assets/img/paintings/painting1.jpg", "assets/img/paintings/painting2.jpg", "assets/img/paintings/painting3.jpg"],
+    },
+    {
+      id : 2,
+      name : "Guernica",
+      artist : "Pablo Picasso",
+      artistId : 2,
+      price : 700,
+      age : 86,
+      pictures : ["assets/img/paintings/painting4.jpg", "assets/img/paintings/painting5.jpg", "assets/img/paintings/painting6.jpg"]
+    },
+    {
+      id : 3,
+      name : "The Last Supper",
+      artist : "Leonardo da Vinci",
+      artistId : 3,
+      price : 300,
+      age : 525,
+      pictures : ["assets/img/paintings/painting7.jpg", "assets/img/paintings/painting8.jpg", "assets/img/paintings/painting9.jpg"]
+    },
+  ];
+
+  const sculptures = [
+    {
+      id : 1,
+      name : "Terracotta Army",
+      artist : "Emperor Qin Shihuang",
+      artistId : 1,
+      price : 500,
+      age : 2270,
+      pictures : ["assets/img/sculptures/sculpture1.jpg", "assets/img/sculptures/sculpture2.jpg", "assets/img/sculptures/sculpture3.jpg"],
+    },
+    {
+      id : 2,
+      name : "Mount Rushmore National Memorial",
+      artist : "Gutzon Borglum & Lincoln Borglum",
+      artistId : 2,
+      price : 500,
+      age : 82,
+      pictures : ["assets/img/sculptures/sculpture4.jpg", "assets/img/sculptures/sculpture5.jpg", "assets/img/sculptures/sculpture6.jpg"],
+    },
+    {
+      id : 3,
+      name : "Great Sphinx of Giza",
+      artist : "Francis Frith",
+      artistId : 3,
+      price : 500,
+      age : 4500,
+      pictures : ["assets/img/sculptures/sculpture7.jpg", "assets/img/sculptures/sculpture8.jpg", "assets/img/sculptures/sculpture9.jpg"],
+    },
+  ]
+
+  const other = [
+    {
+      id : 1,
+      name : "Colosseum",
+      artist : "Joseph Mallord William Turner",
+      artistId : 1,
+      price : 500,
+      age : 72,
+      pictures : ["assets/img/other/other1.jpg","assets/img/other/other2.jpg", "assets/img/other/other3.jpg"],
+    },
+    {
+      id : 2,
+      name : "Taj Mahal",
+      artist : "Ustad Ahmad Lahori",
+      artistId : 2,
+      price : 500,
+      age : 370,
+      pictures : ["assets/img/other/other4.jpg","assets/img/other/other5.jpg", "assets/img/other/other6.jpg"],
+    },
+    {
+      id : 3,
+      name : "Great Wall of China",
+      artist : "Qin Shi Huang",
+      artistId : 3,
+      price : 500,
+      age : 3000,
+      pictures : ["assets/img/other/other7.jpg","assets/img/other/other8.jpg", "assets/img/other/other9.jpg"],
+    },
+  ]
+
+  const offers = [
+    {
+      paintingId : 1,
+      user : "User1",
+      offeredPrice : 450,
+    },
+    {
+      paintingId : 1,
+      user : "User2",
+      offeredPrice : 450,
+    },
+    {
+      paintingId : 1,
+      user : "User3",
+      offeredPrice : 450,
+    },
+    {
+      paintingId : 2,
+      user : "User4",
+      offeredPrice : 450,
+    },
+    {
+      paintingId : 2,
+      user : "User5",
+      offeredPrice : 450,
+    },
+    {
+      paintingId : 2,
+      user : "User6",
+      offeredPrice : 450,
+    },
+    {
+      paintingId : 3,
+      user : "User7",
+      offeredPrice : 450,
+    },
+    {
+      paintingId : 3,
+      user : "User8",
+      offeredPrice : 450,
+    },
+    {
+      paintingId : 3,
+      user : "User9",
+      offeredPrice : 450,
+    }
+  ]
+
+  const comments = [
+    {
+      paintingId : 1,
+      user : "User2",
+      comment : "komentar na sliku 1"
+    }
+  ]
 
   $(document).ready(function(){
       localStorage.setItem("artists", JSON.stringify(artists));
+      localStorage.setItem("paintings", JSON.stringify(paintings));
+
+      localStorage.setItem("offers", JSON.stringify(offers));
+      localStorage.setItem("comments", JSON.stringify(comments));
   });
+
+
+
+
+  
