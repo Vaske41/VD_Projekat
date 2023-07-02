@@ -172,6 +172,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   
   });
+
+
+
+
   const artists = [
     {
         id: 1,
@@ -290,68 +294,168 @@ document.addEventListener('DOMContentLoaded', () => {
     },
   ]
 
-  const offers = [
+  var offers = [
     {
-      paintingId : 1,
+      artworkId : 1,
       user : "User1",
+      artworkType : "painting",
       offeredPrice : 450,
     },
     {
-      paintingId : 1,
+      artworkId : 1,
       user : "User2",
+      artworkType : "sculpture",
       offeredPrice : 450,
     },
     {
-      paintingId : 1,
+      artworkId : 1,
       user : "User3",
+      artworkType : "other",
       offeredPrice : 450,
     },
     {
-      paintingId : 2,
+      artworkId : 2,
       user : "User4",
+      artworkType : "painting",
       offeredPrice : 450,
     },
     {
-      paintingId : 2,
+      artworkId : 2,
       user : "User5",
+      artworkType : "sculpture",
       offeredPrice : 450,
     },
     {
-      paintingId : 2,
+      artworkId : 2,
       user : "User6",
+      artworkType : "other",
       offeredPrice : 450,
     },
     {
-      paintingId : 3,
+      artworkId : 3,
       user : "User7",
+      artworkType : "painting",
       offeredPrice : 450,
     },
     {
-      paintingId : 3,
+      artworkId : 3,
       user : "User8",
+      artworkType : "sculpture",
       offeredPrice : 450,
     },
     {
-      paintingId : 3,
+      artworkId : 3,
       user : "User9",
+      artworkType : "other",
       offeredPrice : 450,
     }
   ]
 
   const comments = [
     {
-      paintingId : 1,
+      artworkId : 1,
+      user : "user1",
+      artworkType : "painting",
+      commentText : "komentar1"
+    },
+    {
+      artworkId : 1,
+      user : "user2",
+      artworkType : "painting",
+      commentText : "komentar2"
+    },
+    {
+      artworkId : 2,
+      user : "user1",
+      artworkType : "painting",
+      commentText : "komentar1"
+    },
+    {
+      artworkId : 2,
+      user : "user2",
+      artworkType : "painting",
+      commentText : "komentar1"
+    },
+    {
+      artworkId : 3,
       user : "User2",
-      comment : "komentar na sliku 1"
-    }
+      artworkType : "painting",
+      commentText : "komentar1"
+    },
+    {
+      artworkId : 3,
+      user : "User2",
+      artworkType : "painting",
+      commentText : "komentar2"
+    },
+    {
+      artworkId : 1,
+      user : "User2",
+      artworkType : "sculpture",
+      commentText : "komentar1"
+    },
+    {
+      artworkId : 1,
+      user : "User2",
+      artworkType : "sculpture",
+      commentText : "komentar2"
+    },
+    {
+      artworkId : 2,
+      user : "User2",
+      artworkType : "sculpture",
+      commentText : "komentar1"
+    },
+    {
+      artworkId : 2,
+      user : "User2",
+      artworkType : "sculpture",
+      commentText : "komentar2"
+    },
+    {
+      artworkId : 3,
+      user : "User2",
+      artworkType : "sculpture",
+      commentText : "komentar1"
+    },
+    {
+      artworkId : 3,
+      user : "User2",
+      artworkType : "sculpture",
+      commentText : "komentar2"
+    },
+    {
+      artworkId : 1,
+      user : "User2",
+      artworkType : "other",
+      commentText : "komentar1"
+    },
+    {
+      artworkId : 1,
+      user : "User2",
+      artworkType : "other",
+      commentText : "komentar2"
+    },
   ]
 
   $(document).ready(function(){
-      localStorage.setItem("artists", JSON.stringify(artists));
-      localStorage.setItem("paintings", JSON.stringify(paintings));
 
+    var offers1 = JSON.parse(localStorage.getItem("offers"));
+    if (!offers1) {
       localStorage.setItem("offers", JSON.stringify(offers));
+    }
+
+    var comments1 = JSON.parse(localStorage.getItem("comments"));
+    if (!comments1) {
       localStorage.setItem("comments", JSON.stringify(comments));
+    }
+
+    localStorage.setItem("artists", JSON.stringify(artists));
+    localStorage.setItem("paintings", JSON.stringify(paintings));
+    localStorage.setItem("sculptures", JSON.stringify(sculptures));
+    localStorage.setItem("other", JSON.stringify(other));
+    //localStorage.setItem("offers", JSON.stringify(offers));
+    //localStorage.setItem("comments", JSON.stringify(comments));
   });
 
 

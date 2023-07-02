@@ -46,11 +46,19 @@ for(let i = 0; i < imagesCount; i++) {
     sendOffer.textContent = "Send offer";
     sendOffer.classList.add("btn", "btn-success");
 
+    sendOffer.addEventListener("click", function() {
+        goToSendOfferForm(paintings[i], i);
+    })
+
 
 
     let writeComment = document.createElement("button");
     writeComment.textContent = "Write comment";
     writeComment.classList.add("btn", "btn-success");
+
+    writeComment.addEventListener("click", function() {
+        goToWriteCommentForm(paintings[i], i);
+    })
 
     sendOfferContainer.push(sendOffer);
     writeCommentContainer.push(writeComment);
@@ -63,9 +71,17 @@ for(let i = 0; i < imagesCount; i++) {
     viewOffers.textContent = "View offers";
     viewOffers.classList.add("btn", "btn-info");
 
+    viewOffers.addEventListener("click", function() {
+        goToViewOffers(paintings[i], i);
+    })
+
     let viewComments = document.createElement("button");
     viewComments.textContent = "View comments";
     viewComments.classList.add("btn", "btn-info");
+
+    viewComments.addEventListener("click", function() {
+        goToViewComments(paintings[i], i);
+    })
 
     viewOffersContainer.push(viewOffers);
     viewCommentsContainer.push(viewComments);
@@ -165,4 +181,84 @@ function openModal(painting) {
     let paintingIndex = paintings.indexOf(painting);
     modalImage.src = painting.pictures[currentImageIndexes[paintingIndex]];
     $("#imageModal").modal("show");
+}
+
+function goToSendOfferForm(painting, i) {
+
+    let imageName = painting.name;
+    let imageArtist = painting.artist;
+    let imagePrice = painting.price;
+    let imageAge = painting.age;
+    let image = painting.pictures[i];
+    let artworkId = painting.id;
+
+    localStorage.setItem("name", imageName);
+    localStorage.setItem("artist", imageArtist);
+    localStorage.setItem("price", imagePrice);
+    localStorage.setItem("age", imageAge);
+    localStorage.setItem("image", image);
+    localStorage.setItem("artworkId", artworkId);
+    localStorage.setItem("type", "painting");
+
+    window.location.href = "sendOffer.html";
+}
+
+function goToWriteCommentForm(painting, i) {
+
+    let imageName = painting.name;
+    let imageArtist = painting.artist;
+    let imagePrice = painting.price;
+    let imageAge = painting.age;
+    let image = painting.pictures[i];
+    let artworkId = painting.id;
+
+    localStorage.setItem("name", imageName);
+    localStorage.setItem("artist", imageArtist);
+    localStorage.setItem("price", imagePrice);
+    localStorage.setItem("age", imageAge);
+    localStorage.setItem("image", image);
+    localStorage.setItem("artworkId", artworkId);
+    localStorage.setItem("type", "painting");
+
+    window.location.href = "writeComment.html";
+}
+
+function goToViewOffers(painting, i) {
+
+    let imageName = painting.name;
+    let imageArtist = painting.artist;
+    let imagePrice = painting.price;
+    let imageAge = painting.age;
+    let image = painting.pictures[i];
+    let artworkId = painting.id;
+
+    localStorage.setItem("name", imageName);
+    localStorage.setItem("artist", imageArtist);
+    localStorage.setItem("price", imagePrice);
+    localStorage.setItem("age", imageAge);
+    localStorage.setItem("image", image);
+    localStorage.setItem("artworkId", artworkId);
+    localStorage.setItem("type", "painting");
+
+    window.location.href = "viewOffers.html";
+}
+
+function goToViewComments(painting, i) {
+
+    let imageName = painting.name;
+    let imageArtist = painting.artist;
+    let imagePrice = painting.price;
+    let imageAge = painting.age;
+    let image = painting.pictures[i];
+    let artworkId = painting.id;
+
+    localStorage.setItem("name", imageName);
+    localStorage.setItem("artist", imageArtist);
+    localStorage.setItem("price", imagePrice);
+    localStorage.setItem("age", imageAge);
+    localStorage.setItem("image", image);
+    localStorage.setItem("artworkId", artworkId);
+    localStorage.setItem("type", "painting");
+
+    window.location.href = "viewComments.html";
 }

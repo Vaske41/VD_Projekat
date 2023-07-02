@@ -27,6 +27,9 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/css/viewOffers.css" rel="stylesheet">
+
+  <script src="assets/vendor/jquery/jquery.min.js"></script>
 
   <!-- =======================================================
   * Template Name: PhotoFolio
@@ -95,7 +98,9 @@
       <div class="container position-relative">
         <div class="row d-flex justify-content-center">
           <div class="col-lg-6 text-center">
-            <h2>Login</h2>
+            <h2>Offers</h2>
+            <div id="info" class="info-class"></div>
+            <div id="imageDiv"></div>
           </div>
         </div>
       </div>
@@ -109,22 +114,16 @@
         <div class="row justify-content-center mt-4">
 
           <div class="col-lg-9">
-            <form>
               <div class="row">
-                <div class="col-md-6 form-group">
-                  <input type="text" name="username" class="form-control" id="username" placeholder="Username" required>
-                </div>
-                <div class="col-md-6 form-group mt-3 mt-md-0">
-                  <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
+
+                <div class="col-md-12" id="offerDiv">
+                    <table id="tableId" class="table table-striped table-bordered table-hover table-dark table-primary table-responsive">
+                    </table>
                 </div>
               </div>
               <div class="my-3">
-
                 <span id="error-span"></span>
-
               </div>
-              <div class="text-center"><button class="btn btn-success" type="submit" id="login-btn">Login</button></div>
-            </form>
           </div><!-- End Contact Form -->
 
         </div>
@@ -166,7 +165,7 @@
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
 
-  <script src="assets/js/login.js"></script>
+  <script src="assets/js/viewOffers.js"></script>
 
 </body>
 

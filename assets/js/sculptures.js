@@ -46,11 +46,18 @@ for(let i = 0; i < imagesCount; i++) {
     sendOffer.textContent = "Send offer";
     sendOffer.classList.add("btn", "btn-success");
 
+    sendOffer.addEventListener("click", function() {
+        goToSendOfferForm(sculptures[i], i);
+    })
 
 
     let writeComment = document.createElement("button");
     writeComment.textContent = "Write comment";
     writeComment.classList.add("btn", "btn-success");
+
+    writeComment.addEventListener("click", function() {
+        goToWriteCommentForm(sculptures[i], i);
+    })
 
     sendOfferContainer.push(sendOffer);
     writeCommentContainer.push(writeComment);
@@ -63,9 +70,17 @@ for(let i = 0; i < imagesCount; i++) {
     viewOffers.textContent = "View offers";
     viewOffers.classList.add("btn", "btn-info");
 
+    viewOffers.addEventListener("click", function() {
+        goToViewOffers(sculptures[i], i);
+    })
+
     let viewComments = document.createElement("button");
     viewComments.textContent = "View comments";
     viewComments.classList.add("btn", "btn-info");
+
+    viewComments.addEventListener("click", function() {
+        goToViewComments(sculptures[i], i);
+    })
 
     viewOffersContainer.push(viewOffers);
     viewCommentsContainer.push(viewComments);
@@ -73,9 +88,6 @@ for(let i = 0; i < imagesCount; i++) {
     let buttons2Div = i % 3 === 0 ? buttons2Left : (i % 3 === 1 ? buttons2Middle : buttons2Right);
     buttons2Div.appendChild(viewOffersContainer[i]);
     buttons2Div.appendChild(viewCommentsContainer[i]);
-
-
-
 
     currentImageIndexes.push(0);
 
@@ -165,4 +177,86 @@ function openModal(sculpture) {
     let sculptureIndex = sculptures.indexOf(sculpture);
     modalImage.src = sculpture.pictures[currentImageIndexes[sculptureIndex]];
     $("#imageModal").modal("show");
+}
+
+function goToSendOfferForm(painting, i) {
+
+    let imageName = painting.name;
+    let imageArtist = painting.artist;
+    let imagePrice = painting.price;
+    let imageAge = painting.age;
+    let image = painting.pictures[i];
+    let artworkId = painting.id;
+
+    localStorage.setItem("name", imageName);
+    localStorage.setItem("artist", imageArtist);
+    localStorage.setItem("price", imagePrice);
+    localStorage.setItem("age", imageAge);
+    localStorage.setItem("image", image);
+    localStorage.setItem("artworkId", artworkId);
+    localStorage.setItem("type", "sculpture");
+
+    window.location.href = "sendOffer.html";
+}
+
+function goToWriteCommentForm(sculpture, i) {
+
+    let imageName = sculpture.name;
+    let imageArtist = sculpture.artist;
+    let imagePrice = sculpture.price;
+    let imageAge = sculpture.age;
+    let image = sculpture.pictures[i];
+    let artworkId = sculpture.id;
+
+    localStorage.setItem("name", imageName);
+    localStorage.setItem("artist", imageArtist);
+    localStorage.setItem("price", imagePrice);
+    localStorage.setItem("age", imageAge);
+    localStorage.setItem("image", image);
+    localStorage.setItem("artworkId", artworkId);
+    localStorage.setItem("type", "sculpture");
+
+    window.location.href = "writeComment.html";
+}
+
+
+function goToViewOffers(sculpture, i) {
+
+    let imageName = sculpture.name;
+    let imageArtist = sculpture.artist;
+    let imagePrice = sculpture.price;
+    let imageAge = sculpture.age;
+    let image = sculpture.pictures[i];
+    let artworkId = sculpture.id;
+
+    localStorage.setItem("name", imageName);
+    localStorage.setItem("artist", imageArtist);
+    localStorage.setItem("price", imagePrice);
+    localStorage.setItem("age", imageAge);
+    localStorage.setItem("image", image);
+    localStorage.setItem("artworkId", artworkId);
+    localStorage.setItem("type", "sculpture");
+
+    window.location.href = "viewOffers.html";
+}
+
+
+function goToViewComments(sculpture, i) {
+
+    let imageName = sculpture.name;
+    let imageArtist = sculpture.artist;
+    let imagePrice = sculpture.price;
+    let imageAge = sculpture.age;
+    let image = sculpture.pictures[i];
+    let artworkId = sculpture.id;
+
+    localStorage.setItem("name", imageName);
+    localStorage.setItem("artist", imageArtist);
+    localStorage.setItem("price", imagePrice);
+    localStorage.setItem("age", imageAge);
+    localStorage.setItem("image", image);
+    localStorage.setItem("artworkId", artworkId);
+    localStorage.setItem("type", "sculpture");
+
+    window.location.href = "viewComments.html";
 }

@@ -46,11 +46,18 @@ for(let i = 0; i < imagesCount; i++) {
     sendOffer.textContent = "Send offer";
     sendOffer.classList.add("btn", "btn-success");
 
+    sendOffer.addEventListener("click", function() {
+        goToSendOfferForm(other[i], i);
+    })
 
 
     let writeComment = document.createElement("button");
     writeComment.textContent = "Write comment";
     writeComment.classList.add("btn", "btn-success");
+
+    writeComment.addEventListener("click", function() {
+        goToWriteCommentForm(other[i], i);
+    })
 
     sendOfferContainer.push(sendOffer);
     writeCommentContainer.push(writeComment);
@@ -63,9 +70,17 @@ for(let i = 0; i < imagesCount; i++) {
     viewOffers.textContent = "View offers";
     viewOffers.classList.add("btn", "btn-info");
 
+    viewOffers.addEventListener("click", function() {
+        goToViewOffers(other[i], i);
+    })
+
     let viewComments = document.createElement("button");
     viewComments.textContent = "View comments";
     viewComments.classList.add("btn", "btn-info");
+
+    viewComments.addEventListener("click", function() {
+        goToViewComments(other[i], i);
+    })
 
     viewOffersContainer.push(viewOffers);
     viewCommentsContainer.push(viewComments);
@@ -73,9 +88,6 @@ for(let i = 0; i < imagesCount; i++) {
     let buttons2Div = i % 3 === 0 ? buttons2Left : (i % 3 === 1 ? buttons2Middle : buttons2Right);
     buttons2Div.appendChild(viewOffersContainer[i]);
     buttons2Div.appendChild(viewCommentsContainer[i]);
-
-
-
 
     currentImageIndexes.push(0);
 
@@ -165,4 +177,89 @@ function openModal(otherInstance) {
     let otherInstanceIndex = other.indexOf(otherInstance);
     modalImage.src = otherInstance.pictures[currentImageIndexes[otherInstanceIndex]];
     $("#imageModal").modal("show");
+}
+
+function goToSendOfferForm(other, i) {
+
+    let imageName = other.name;
+    let imageArtist = other.artist;
+    let imagePrice = other.price;
+    let imageAge = other.age;
+    let image = other.pictures[i];
+    let artworkId = other.id;
+
+    console.log(artworkId);
+
+    localStorage.setItem("name", imageName);
+    localStorage.setItem("artist", imageArtist);
+    localStorage.setItem("price", imagePrice);
+    localStorage.setItem("age", imageAge);
+    localStorage.setItem("image", image);
+    localStorage.setItem("artworkId", artworkId);
+    localStorage.setItem("type", "other");
+
+    window.location.href = "sendOffer.html";
+}
+
+function goToWriteCommentForm(other, i) {
+
+    let imageName = other.name;
+    let imageArtist = other.artist;
+    let imagePrice = other.price;
+    let imageAge = other.age;
+    let image = other.pictures[i];
+    let artworkId = other.id;
+
+    
+
+    localStorage.setItem("name", imageName);
+    localStorage.setItem("artist", imageArtist);
+    localStorage.setItem("price", imagePrice);
+    localStorage.setItem("age", imageAge);
+    localStorage.setItem("image", image);
+    localStorage.setItem("artworkId", artworkId);
+    localStorage.setItem("type", "other");
+
+    window.location.href = "writeComment.html";
+}
+
+function goToViewOffers(other, i) {
+
+    let imageName = other.name;
+    let imageArtist = other.artist;
+    let imagePrice = other.price;
+    let imageAge = other.age;
+    let image = other.pictures[i];
+    let artworkId = other.id;
+
+    localStorage.setItem("name", imageName);
+    localStorage.setItem("artist", imageArtist);
+    localStorage.setItem("price", imagePrice);
+    localStorage.setItem("age", imageAge);
+    localStorage.setItem("image", image);
+    localStorage.setItem("artworkId", artworkId);
+    localStorage.setItem("type", "other");
+
+    window.location.href = "viewOffers.html";
+}
+
+
+function goToViewComments(other, i) {
+
+    let imageName = other.name;
+    let imageArtist = other.artist;
+    let imagePrice = other.price;
+    let imageAge = other.age;
+    let image = other.pictures[i];
+    let artworkId = other.id;
+
+    localStorage.setItem("name", imageName);
+    localStorage.setItem("artist", imageArtist);
+    localStorage.setItem("price", imagePrice);
+    localStorage.setItem("age", imageAge);
+    localStorage.setItem("image", image);
+    localStorage.setItem("artworkId", artworkId);
+    localStorage.setItem("type", "other");
+
+    window.location.href = "viewComments.html";
 }
