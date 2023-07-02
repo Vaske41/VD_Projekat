@@ -213,6 +213,8 @@ document.addEventListener('DOMContentLoaded', () => {
         price : 500,
         age : 381,
         pictures : ["assets/img/paintings/painting1.jpg", "assets/img/paintings/painting2.jpg", "assets/img/paintings/painting3.jpg"],
+        type : "painting",
+        typeSRB: "slika",
     },
     {
       id : 2,
@@ -221,7 +223,9 @@ document.addEventListener('DOMContentLoaded', () => {
       artistId : 2,
       price : 700,
       age : 86,
-      pictures : ["assets/img/paintings/painting4.jpg", "assets/img/paintings/painting5.jpg", "assets/img/paintings/painting6.jpg"]
+      pictures : ["assets/img/paintings/painting4.jpg", "assets/img/paintings/painting5.jpg", "assets/img/paintings/painting6.jpg"],
+      type : "painting",
+      typeSRB: "slika",
     },
     {
       id : 3,
@@ -230,7 +234,9 @@ document.addEventListener('DOMContentLoaded', () => {
       artistId : 3,
       price : 300,
       age : 525,
-      pictures : ["assets/img/paintings/painting7.jpg", "assets/img/paintings/painting8.jpg", "assets/img/paintings/painting9.jpg"]
+      pictures : ["assets/img/paintings/painting7.jpg", "assets/img/paintings/painting8.jpg", "assets/img/paintings/painting9.jpg"],
+      type : "painting",
+      typeSRB: "slika",
     },
   ];
 
@@ -243,6 +249,8 @@ document.addEventListener('DOMContentLoaded', () => {
       price : 500,
       age : 2270,
       pictures : ["assets/img/sculptures/sculpture1.jpg", "assets/img/sculptures/sculpture2.jpg", "assets/img/sculptures/sculpture3.jpg"],
+      type : "sculpture",
+      typeSRB: "skulptura",
     },
     {
       id : 2,
@@ -252,6 +260,8 @@ document.addEventListener('DOMContentLoaded', () => {
       price : 500,
       age : 82,
       pictures : ["assets/img/sculptures/sculpture4.jpg", "assets/img/sculptures/sculpture5.jpg", "assets/img/sculptures/sculpture6.jpg"],
+      type : "sculpture",
+      typeSRB: "skulptura",
     },
     {
       id : 3,
@@ -261,6 +271,8 @@ document.addEventListener('DOMContentLoaded', () => {
       price : 500,
       age : 4500,
       pictures : ["assets/img/sculptures/sculpture7.jpg", "assets/img/sculptures/sculpture8.jpg", "assets/img/sculptures/sculpture9.jpg"],
+      type : "sculpture",
+      typeSRB: "skulptura",
     },
   ]
 
@@ -273,6 +285,8 @@ document.addEventListener('DOMContentLoaded', () => {
       price : 500,
       age : 72,
       pictures : ["assets/img/other/other1.jpg","assets/img/other/other2.jpg", "assets/img/other/other3.jpg"],
+      type : "other",
+      typeSRB: "ostalo",
     },
     {
       id : 2,
@@ -282,6 +296,8 @@ document.addEventListener('DOMContentLoaded', () => {
       price : 500,
       age : 370,
       pictures : ["assets/img/other/other4.jpg","assets/img/other/other5.jpg", "assets/img/other/other6.jpg"],
+      type : "other",
+      typeSRB: "ostalo",
     },
     {
       id : 3,
@@ -291,6 +307,8 @@ document.addEventListener('DOMContentLoaded', () => {
       price : 500,
       age : 3000,
       pictures : ["assets/img/other/other7.jpg","assets/img/other/other8.jpg", "assets/img/other/other9.jpg"],
+      type : "other",
+      typeSRB: "ostalo",
     },
   ]
 
@@ -454,8 +472,6 @@ document.addEventListener('DOMContentLoaded', () => {
     localStorage.setItem("paintings", JSON.stringify(paintings));
     localStorage.setItem("sculptures", JSON.stringify(sculptures));
     localStorage.setItem("other", JSON.stringify(other));
-    //localStorage.setItem("offers", JSON.stringify(offers));
-    //localStorage.setItem("comments", JSON.stringify(comments));
   });
 
 
