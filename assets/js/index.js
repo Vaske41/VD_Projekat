@@ -456,6 +456,10 @@ document.addEventListener('DOMContentLoaded', () => {
     },
   ]
 
+  function getArtworkName(id, offer){
+    
+  }
+
   $(document).ready(function(){
 
     var offers1 = JSON.parse(localStorage.getItem("offers"));
@@ -472,6 +476,9 @@ document.addEventListener('DOMContentLoaded', () => {
     localStorage.setItem("paintings", JSON.stringify(paintings));
     localStorage.setItem("sculptures", JSON.stringify(sculptures));
     localStorage.setItem("other", JSON.stringify(other));
+      let allOffers = JSON.parse(localStorage.getItem("offers"));
+      let latestOffers = allOffers.slice(-3);
+      
   });
 
 
