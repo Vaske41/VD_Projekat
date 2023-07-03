@@ -35,6 +35,33 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+
+  <style>
+    .painting {
+      text-align: center;
+    }
+
+    .painting img {
+      display: block;
+      margin: 0 auto;
+    }
+
+    .controls {
+  display: flex;
+  justify-content: center;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+
+    
+  </style>
+
+
 </head>
 
 <body>
@@ -43,30 +70,28 @@
   <header id="header" class="header d-flex align-items-center fixed-top pb-1">
     <div class="container-fluid d-flex align-items-center justify-content-between">
 
-      <a href="index.html" class="logo d-flex align-items-center  me-auto me-lg-0">
+      <a href="pocetna.html" class="logo d-flex align-items-center  me-auto me-lg-0">
         <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.png" alt=""> -->
         <img src="assets/img/logo.jpg" alt="">
         <!-- <i class="bi bi-camera"></i> -->
         <h1>Art Exhibition</h1>
-        
       </a>
       
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a href="index.html">Home</a></li>
+          <li><a href="pocetna.html">Početna</a></li>
           
-          <li class="dropdown"><a href="#"><span>Artwork</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+          <li class="dropdown"><a href="#"><span>Umetnine</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
-              <li><a href="paintings.html">Paintings</a></li>
-              <li><a href="sculptures.html">Sculptures</a></li>
-              <li><a href="other.html">Other</a></li>
+              <li><a href="slike.html" class="active">Slike</a></li>
+              <li><a href="skulpture.html">Skulpture</a></li>
+              <li><a href="ostalo.html">Ostalo</a></li>
             </ul>
           </li>
-          <li><a href="artists.html" class="active">Artists</a></li>
-          <li><a href="myAccount.html">My account</a></li>
-          <li><a href="about.html">About</a></li>
-          <li class="dropdown"><a href="#"><span>Banners</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+          <li><a href="umetnici.html">Umetnici</a></li>
+          <li><a href="#">Moj nalog</a></li>
+          <li><a href="oNama.html">O nama</a></li>
+          <li class="dropdown"><a href="#"><span>Baneri</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
               <li><a href="https://www.paypal.com/us/home">Paypal</a></li>
               <li><a href="https://www.westernunion.com/rs/en/home.html">Western union</a></li>
@@ -78,35 +103,62 @@
       </nav><!-- .navbar -->
 
       <div class="btn-group header-social-links">
-        <a class="disabled btn btn-success active" aria-current="page">EN</a>
-        <a href="umetnici.html" class="btn btn-outline-success">SRB</a>
+        <a href="paintings.html" class="btn btn-outline-success btn-en">EN</a>
+        <a class="disabled btn btn-success active btn-srb">SRB</a>
         
       </div>
       <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
       <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
-
     </div>
   </header><!-- End Header -->
 
   <div class="container-fluid">
     <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb" id="breadcrumb">
       <ol class="breadcrumb">
-        <li class="breadcrumb-item active" aria-current="page">Artists</li>
+        <li class="breadcrumb-item"><a href="#">Umetnine</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Slike</li>
       </ol>
     </nav>
   </div>
   
   <main id="main" data-aos="fade" data-aos-delay="1500">
 
-    <!-- ======= Gallery Section ======= -->
-    <section id="gallery" class="gallery">
-      <div class="container-fluid">
-
-        <div class="row gy-4" id="artists">
+  <!-- ======= Gallery Section ======= -->
+  <section id="gallery" class="gallery">
+    <div class="container-fluid">
+        <div class="row gy-4 justify-content-center text-center">
+            <div class="col-xl-4 col-lg-4 col-md-6">
+              <div class="gallery-item h-100">
+                <img src="assets/img/paintings/painting1.jpg" class="img-fluid" alt="">
+                <div class="gallery-links d-flex align-items-center justify-content-center">
+                  <a href="assets/img/paintings/painting1.jpg" title="The Night Watch" class="glightbox preview-link"><i class="bi bi-arrows-angle-expand"></i></a>
+                  <a href="single-artwork.html" onclick="setIdType(1, 'painting')" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                </div>
+              </div>
+            </div><!-- End Gallery Item -->
+            <div class="col-xl-4 col-lg-4 col-md-6">
+              <div class="gallery-item h-100">
+                <img src="assets/img/paintings/painting4.jpg" class="img-fluid" alt="">
+                <div class="gallery-links d-flex align-items-center justify-content-center">
+                  <a href="assets/img/paintings/painting4.jpg" title="Guernica" class="glightbox preview-link"><i class="bi bi-arrows-angle-expand"></i></a>
+                  <a href="single-artwork.html" onclick="setIdType(2, 'painting')" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                </div>
+              </div>
+            </div><!-- End Gallery Item -->
+            <div class="col-xl-4 col-lg-4 col-md-6">
+              <div class="gallery-item h-100">
+                <img src="assets/img/paintings/painting7.jpg" class="img-fluid" alt="">
+                <div class="gallery-links d-flex align-items-center justify-content-center">
+                  <a href="assets/img/paintings/painting7.jpg" title="The Last Supper" class="glightbox preview-link"><i class="bi bi-arrows-angle-expand"></i></a>
+                  <a href="single-artwork.html" onclick="setIdType(3, 'painting')" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                </div>
+              </div>
+            </div><!-- End Gallery Item -->
         </div>
 
-      </div>
-    </section><!-- End Gallery Section -->
+    </div>
+  </section><!-- End Gallery Section -->
+      
 
   </main><!-- End #main -->
 
@@ -131,15 +183,21 @@
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <!-- <script src="assets/vendor/glightbox/js/glightbox.min.js"></script> -->
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="assets/vendor/jquery/jquery.min.js"></script>
 
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+
+
+
   <!-- Template Main JS File -->
   <script src="assets/js/index.js"></script>
-  <script src="https://unpkg.com/jspdf-invoice-template@1.4.0/dist/index.js"></script>
-  <script src="assets/js/artists.js"></script>
+
+  <link href="assets/css/paintings.css" rel="stylesheet">
 
 </body>
 

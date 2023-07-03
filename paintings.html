@@ -72,10 +72,9 @@
 
       <a href="index.html" class="logo d-flex align-items-center  me-auto me-lg-0">
         <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.png" alt=""> -->
-        <i class="bi bi-camera"></i>
-        <h1>PhotoFolio</h1>
-        
+        <img src="assets/img/logo.jpg" alt="">
+        <!-- <i class="bi bi-camera"></i> -->
+        <h1>Art Exhibition</h1>
       </a>
       
       <nav id="navbar" class="navbar">
@@ -90,7 +89,7 @@
             </ul>
           </li>
           <li><a href="artists.html">Artists</a></li>
-          <li><a href="#">My account</a></li>
+          <li><a href="myAccount.html">My account</a></li>
           <li><a href="about.html">About</a></li>
           <li class="dropdown"><a href="#"><span>Banners</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
@@ -105,7 +104,7 @@
 
       <div class="btn-group header-social-links">
         <a class="disabled btn btn-success active" aria-current="page">EN</a>
-        <a href="umetnici.html" class="btn btn-outline-success">SRB</a>
+        <a href="slike.html" class="btn btn-outline-success">SRB</a>
         
       </div>
       <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
@@ -128,32 +127,36 @@
   <!-- ======= Gallery Section ======= -->
   <section id="gallery" class="gallery">
     <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-4">
-            <div class="text-center info-class" id="info-left"><!-- Bice dodat info deo o slici --></div>
-          <div id="paintings-left">
-            <!-- Ovde će biti dodati delovi za svaku sliku u levom delu -->
-          </div>
-            <div class="text-center" id="buttons1-left"><!-- Bice dodat info deo sa dugmicima za slanje ponude i komentara --></div>
-            <div class="text-center" id="buttons2-left"><!-- Bice dodat info deo sa dugmicima za pregled ponuda i komentara --></div>
+        <div class="row gy-4 justify-content-center text-center">
+            <div class="col-xl-4 col-lg-4 col-md-6">
+              <div class="gallery-item h-100">
+                <img src="assets/img/paintings/painting1.jpg" class="img-fluid" alt="">
+                <div class="gallery-links d-flex align-items-center justify-content-center">
+                  <a href="assets/img/paintings/painting1.jpg" title="The Night Watch" class="glightbox preview-link"><i class="bi bi-arrows-angle-expand"></i></a>
+                  <a href="single-artwork.html" onclick="setIdType(1, 'painting')" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                </div>
+              </div>
+            </div><!-- End Gallery Item -->
+            <div class="col-xl-4 col-lg-4 col-md-6">
+              <div class="gallery-item h-100">
+                <img src="assets/img/paintings/painting4.jpg" class="img-fluid" alt="">
+                <div class="gallery-links d-flex align-items-center justify-content-center">
+                  <a href="assets/img/paintings/painting4.jpg" title="Guernica" class="glightbox preview-link"><i class="bi bi-arrows-angle-expand"></i></a>
+                  <a href="single-artwork.html" onclick="setIdType(2, 'painting')" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                </div>
+              </div>
+            </div><!-- End Gallery Item -->
+            <div class="col-xl-4 col-lg-4 col-md-6">
+              <div class="gallery-item h-100">
+                <img src="assets/img/paintings/painting7.jpg" class="img-fluid" alt="">
+                <div class="gallery-links d-flex align-items-center justify-content-center">
+                  <a href="assets/img/paintings/painting7.jpg" title="The Last Supper" class="glightbox preview-link"><i class="bi bi-arrows-angle-expand"></i></a>
+                  <a href="single-artwork.html" onclick="setIdType(3, 'painting')" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                </div>
+              </div>
+            </div><!-- End Gallery Item -->
         </div>
-        <div class="col-md-4">
-            <div class="text-center info-class" id="info-middle"><!-- Bice dodat info deo o slici --></div>
-          <div id="paintings-middle">
-            <!-- Ovde će biti dodati delovi za svaku sliku u srednjem delu -->
-          </div>
-          <div class="text-center" id="buttons1-middle"><!-- Bice dodat info deo sa dugmicima za slanje ponude i komentara --></div>
-          <div class="text-center" id="buttons2-middle"><!-- Bice dodat info deo sa dugmicima za pregled ponuda i komentara --></div>
-        </div>
-        <div class="col-md-4">
-            <div class="text-center info-class" id="info-right"><!-- Bice dodat info deo o slici --></div>
-          <div id="paintings-right">
-            <!-- Ovde će biti dodati delovi za svaku sliku u desnom delu -->
-          </div>
-          <div class="text-center" id="buttons1-right"><!-- Bice dodat info deo sa dugmicima za slanje ponude i komentara --></div>
-          <div class="text-center" id="buttons2-right"><!-- Bice dodat info deo sa dugmicima za pregled ponuda i komentara --></div>
-        </div>
-      </div>
+
     </div>
   </section><!-- End Gallery Section -->
       
@@ -194,7 +197,6 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/index.js"></script>
-  <script src="assets/js/paintings.js"></script>
 
   <link href="assets/css/paintings.css" rel="stylesheet">
 

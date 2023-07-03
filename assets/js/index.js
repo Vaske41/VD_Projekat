@@ -456,8 +456,26 @@ document.addEventListener('DOMContentLoaded', () => {
     },
   ]
 
-  function getArtworkName(id, offer){
-    
+  function getArtworkName(offer){
+    if(offer.artworkType == "painting"){
+      let art = paintings.find(p=>p.id==offer.artworkId);
+      return art.name;
+    }
+    else if(offer.artworkType == "sculpture"){
+      let art = sculptures.find(p=>p.id==offer.artworkId);
+      return art.name;
+      
+    }
+    else{
+      let art = other.find(p=>p.id==offer.artworkId);
+      return art.name;
+    }
+    return "";
+  }
+
+  function setIdType(id, type){
+    localStorage.setItem("id", id);
+    localStorage.setItem("type", type);
   }
 
   $(document).ready(function(){
@@ -471,14 +489,25 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!comments1) {
       localStorage.setItem("comments", JSON.stringify(comments));
     }
-
     localStorage.setItem("artists", JSON.stringify(artists));
     localStorage.setItem("paintings", JSON.stringify(paintings));
     localStorage.setItem("sculptures", JSON.stringify(sculptures));
     localStorage.setItem("other", JSON.stringify(other));
-      let allOffers = JSON.parse(localStorage.getItem("offers"));
-      let latestOffers = allOffers.slice(-3);
-      
+    localStorage.setItem('user', 'pera');
+    let allOffers = JSON.parse(localStorage.getItem("offers"));
+    let latestOffers = allOffers.slice(-3);
+    let awName1 = getArtworkName(latestOffers[0]);
+    let awName2 = getArtworkName(latestOffers[1]);
+    let awName3 = getArtworkName(latestOffers[2]);
+    $('.Artwork1').html(awName1);
+    $('.User1').html(latestOffers[0].user);
+    $('.Price1').html(latestOffers[0].offeredPrice);
+    $('.Artwork2').html(awName2);
+    $('.User2').html(latestOffers[1].user);
+    $('.Price2').html(latestOffers[1].offeredPrice);
+    $('.Artwork3').html(awName3);
+    $('.User3').html(latestOffers[2].user);
+    $('.Price3').html(latestOffers[2].offeredPrice);
   });
 
 
