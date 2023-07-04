@@ -1,262 +1,110 @@
-const sculpturesLeftContainer = document.getElementById("sculptures-left");
-const sculpturesMiddleContainer = document.getElementById("sculptures-middle");
-const sculpturesRightContainer = document.getElementById("sculptures-right");
-
-const infoLeft = document.getElementById("info-left");
-const infoMiddle = document.getElementById("info-middle");
-const infoRight = document.getElementById("info-right");
-
-const buttons1Left = document.getElementById("buttons1-left");
-const buttons1Middle = document.getElementById("buttons1-middle");
-const buttons1Right = document.getElementById("buttons1-right");
-
-const buttons2Left = document.getElementById("buttons2-left");
-const buttons2Middle = document.getElementById("buttons2-middle");
-const buttons2Right = document.getElementById("buttons2-right");
-
-const initialImages = [];
-const images = [];
-const imagesContainers = [];
-const arrowsContainers = [];
-const previousButtons = [];
-const nextButtons = [];
-let currentImageIndexes = [];
-const imagesCount = sculptures.length;
-
-const infoContainers = [];
-
-const sendOfferContainer = [];
-const writeCommentContainer = [];
-
-const viewOffersContainer = [];
-const viewCommentsContainer = [];
-
-for(let i = 0; i < imagesCount; i++) {
-
-    let imageName = sculptures[i].name;
-    let imageArtist = sculptures[i].artist;
-    let imagePrice = sculptures[i].price;
-    let imageAge = sculptures[i].age;
-
-    const infoContainer = i % 3 === 0 ? infoLeft : (i % 3 === 1 ? infoMiddle : infoRight);
-
-    infoContainer.textContent = "Name: " + imageName + "\nArtist: " + imageArtist + "\nPrice: " + imagePrice + " | " + "Age: " + imageAge;
-
-    let sendOffer = document.createElement("button");
-    sendOffer.textContent = "Send offer";
-    sendOffer.classList.add("btn", "btn-success");
-
-    sendOffer.addEventListener("click", function() {
-        goToSendOfferForm(sculptures[i], i);
-    })
-
-
-    let writeComment = document.createElement("button");
-    writeComment.textContent = "Write comment";
-    writeComment.classList.add("btn", "btn-success");
-
-    writeComment.addEventListener("click", function() {
-        goToWriteCommentForm(sculptures[i], i);
-    })
-
-    sendOfferContainer.push(sendOffer);
-    writeCommentContainer.push(writeComment);
-
-    let buttons1Div = i % 3 === 0 ? buttons1Left : (i % 3 === 1 ? buttons1Middle : buttons1Right);
-    buttons1Div.appendChild(sendOfferContainer[i]);
-    buttons1Div.appendChild(writeCommentContainer[i]);
-
-    let viewOffers = document.createElement("button");
-    viewOffers.textContent = "View offers";
-    viewOffers.classList.add("btn", "btn-info");
-
-    viewOffers.addEventListener("click", function() {
-        goToViewOffers(sculptures[i], i);
-    })
-
-    let viewComments = document.createElement("button");
-    viewComments.textContent = "View comments";
-    viewComments.classList.add("btn", "btn-info");
-
-    viewComments.addEventListener("click", function() {
-        goToViewComments(sculptures[i], i);
-    })
-
-    viewOffersContainer.push(viewOffers);
-    viewCommentsContainer.push(viewComments);
-
-    let buttons2Div = i % 3 === 0 ? buttons2Left : (i % 3 === 1 ? buttons2Middle : buttons2Right);
-    buttons2Div.appendChild(viewOffersContainer[i]);
-    buttons2Div.appendChild(viewCommentsContainer[i]);
-
-    currentImageIndexes.push(0);
-
-    initialImages.push(sculptures[i].pictures[0]);
-    images.push(document.createElement("img"));
-    images[i].src = initialImages[i];
-    images[i].classList.add("img-fluid", "rounded", "img-thumbnail");
-    images[i].style.width = "450px";
-    images[i].style.height = "300px";
-    images[i].addEventListener("click", function(){openModal(sculptures[i])});
-
-
-
-    imagesContainers.push(document.createElement("div"));
-    imagesContainers[i].classList.add("d-flex", "justify-content-center", "img-container");
-    imagesContainers[i].appendChild(images[i]);
-
-
-
-
-    previousButtons.push(document.createElement("button"));
-    previousButtons[i].classList.add("btn", "btn-secondary");
-    previousButtons[i].innerHTML = '<i class="bi bi-arrow-left"></i>';
-    previousButtons[i].addEventListener("click", function() {showPreviousImage(sculptures[i])});
-
-    nextButtons.push(document.createElement("button"));
-    nextButtons[i].classList.add("btn", "btn-secondary");
-    nextButtons[i].innerHTML = '<i class="bi bi-arrow-right"></i>';
-    nextButtons[i].addEventListener("click", function() {showNextImage(sculptures[i])});
-
-    arrowsContainers.push(document.createElement("div"));
-    arrowsContainers[i].classList.add("text-center");
-    arrowsContainers[i].appendChild(previousButtons[i]);
-    arrowsContainers[i].appendChild(nextButtons[i]);
-
-    let container = i % 3 === 0 ? sculpturesLeftContainer : (i % 3 === 1 ? sculpturesMiddleContainer : sculpturesRightContainer);
-    container.appendChild(imagesContainers[i]);
-    container.appendChild(arrowsContainers[i]);
-
-
-}
-
-function showPreviousImage(sculpture) {
-    let sculptureIndex = sculptures.indexOf(sculpture);
-    currentImageIndexes[sculptureIndex] = (currentImageIndexes[sculptureIndex] - 1 + imagesCount) % imagesCount;
-    images[sculptureIndex].src = sculpture.pictures[currentImageIndexes[sculptureIndex]];
-}
-
-function showNextImage(sculpture) {
-    let sculptureIndex = sculptures.indexOf(sculpture);
-    currentImageIndexes[sculptureIndex] = (currentImageIndexes[sculptureIndex] + 1) % imagesCount;
-    images[sculptureIndex].src = sculpture.pictures[currentImageIndexes[sculptureIndex]];
-
-}
-  
-
-const modal = document.createElement("div");
-modal.classList.add("modal", "fade");
-modal.id = "imageModal";
-modal.tabIndex = "-1";
-modal.setAttribute("role", "dialog");
-modal.setAttribute("aria-labelledby", "imageModalLabel");
-modal.setAttribute("aria-hidden", "true");
-
-const modalDialog = document.createElement("div");
-modalDialog.classList.add("modal-dialog", "modal-dialog-centered", "modal-lg");
-modalDialog.setAttribute("role", "document");
-
-const modalContent = document.createElement("div");
-modalContent.classList.add("modal-content");
-
-const modalBody = document.createElement("div");
-modalBody.classList.add("modal-body");
-
-const modalImage = document.createElement("img");
-modalImage.src = "";
-modalImage.classList.add("img-fluid");
-
-modalBody.appendChild(modalImage);
-modalContent.appendChild(modalBody);
-modalDialog.appendChild(modalContent);
-modal.appendChild(modalDialog);
-
-document.body.appendChild(modal);
-
-function openModal(sculpture) {
-    let sculptureIndex = sculptures.indexOf(sculpture);
-    modalImage.src = sculpture.pictures[currentImageIndexes[sculptureIndex]];
-    $("#imageModal").modal("show");
-}
-
-function goToSendOfferForm(painting, i) {
-
-    let imageName = painting.name;
-    let imageArtist = painting.artist;
-    let imagePrice = painting.price;
-    let imageAge = painting.age;
-    let image = painting.pictures[i];
-    let artworkId = painting.id;
-
-    localStorage.setItem("name", imageName);
-    localStorage.setItem("artist", imageArtist);
-    localStorage.setItem("price", imagePrice);
-    localStorage.setItem("age", imageAge);
-    localStorage.setItem("image", image);
-    localStorage.setItem("artworkId", artworkId);
-    localStorage.setItem("type", "sculpture");
-
-    window.location.href = "sendOffer.html";
-}
-
-function goToWriteCommentForm(sculpture, i) {
-
-    let imageName = sculpture.name;
-    let imageArtist = sculpture.artist;
-    let imagePrice = sculpture.price;
-    let imageAge = sculpture.age;
-    let image = sculpture.pictures[i];
-    let artworkId = sculpture.id;
-
-    localStorage.setItem("name", imageName);
-    localStorage.setItem("artist", imageArtist);
-    localStorage.setItem("price", imagePrice);
-    localStorage.setItem("age", imageAge);
-    localStorage.setItem("image", image);
-    localStorage.setItem("artworkId", artworkId);
-    localStorage.setItem("type", "sculpture");
-
-    window.location.href = "writeComment.html";
-}
-
-
-function goToViewOffers(sculpture, i) {
-
-    let imageName = sculpture.name;
-    let imageArtist = sculpture.artist;
-    let imagePrice = sculpture.price;
-    let imageAge = sculpture.age;
-    let image = sculpture.pictures[i];
-    let artworkId = sculpture.id;
-
-    localStorage.setItem("name", imageName);
-    localStorage.setItem("artist", imageArtist);
-    localStorage.setItem("price", imagePrice);
-    localStorage.setItem("age", imageAge);
-    localStorage.setItem("image", image);
-    localStorage.setItem("artworkId", artworkId);
-    localStorage.setItem("type", "sculpture");
-
-    window.location.href = "viewOffers.html";
-}
-
-
-function goToViewComments(sculpture, i) {
-
-    let imageName = sculpture.name;
-    let imageArtist = sculpture.artist;
-    let imagePrice = sculpture.price;
-    let imageAge = sculpture.age;
-    let image = sculpture.pictures[i];
-    let artworkId = sculpture.id;
-
-    localStorage.setItem("name", imageName);
-    localStorage.setItem("artist", imageArtist);
-    localStorage.setItem("price", imagePrice);
-    localStorage.setItem("age", imageAge);
-    localStorage.setItem("image", image);
-    localStorage.setItem("artworkId", artworkId);
-    localStorage.setItem("type", "sculpture");
-
-    window.location.href = "viewComments.html";
-}
+let allPaintings = JSON.parse(localStorage.getItem("sculptures"));
+let allArtists = JSON.parse(localStorage.getItem("artists"));
+
+$("#artworkNameSearch").click(function(){
+    let artworkName = $("#artworkName").val();
+    console.log(artworkName);
+    let newPaintings = allPaintings.filter(p=>p.name.includes(artworkName));
+    $("#paintings div.col-xl-4").remove();
+    console.log(newPaintings);
+    for(let i=0;i<newPaintings.length;i++){
+        $("#paintings").append(`
+        <div class="col-xl-4 col-lg-4 col-md-6">
+        <div class="gallery-item h-100">
+        <img src="${newPaintings[i].pictures[0]}" class="img-fluid" alt="">
+        <div class="gallery-links d-flex align-items-center justify-content-center">
+          <a href="${newPaintings[i].pictures[0]}" title="The Night Watch" class="glightbox preview-link"><i class="bi bi-arrows-angle-expand"></i></a>
+          <a href="single-artwork.html" onclick="setIdType(${newPaintings[i].id}, 'painting')" class="details-link"><i class="bi bi-link-45deg"></i></a>
+        </div>
+      </div>
+      </div>`);
+    }
+    
+});
+
+$("#artistNameSearch").click(function(){
+    let artistName = $("#artistName").val();
+    console.log(allArtists);
+    console.log(artistName);
+    let newPaintings = [];
+    for(let i=0;i<allPaintings.length;i++){
+        let artist = allArtists.find(a=>a.id==parseInt(allPaintings[i].artistId));
+        if(artist.forename.includes(artistName)){
+            newPaintings.push(allPaintings[i]);
+        }
+    }
+    $("#paintings div.col-xl-4").remove();
+    console.log(newPaintings);
+    for(let i=0;i<newPaintings.length;i++){
+        $("#paintings").append(`
+        <div class="col-xl-4 col-lg-4 col-md-6">
+        <div class="gallery-item h-100">
+        <img src="${newPaintings[i].pictures[0]}" class="img-fluid" alt="">
+        <div class="gallery-links d-flex align-items-center justify-content-center">
+          <a href="${newPaintings[i].pictures[0]}" title="The Night Watch" class="glightbox preview-link"><i class="bi bi-arrows-angle-expand"></i></a>
+          <a href="single-artwork.html" onclick="setIdType(${newPaintings[i].id}, 'painting')" class="details-link"><i class="bi bi-link-45deg"></i></a>
+        </div>
+      </div>
+      </div>`);
+    }
+    
+});
+
+
+$("#artworkNameSort").click(function(){
+    let newPaintings = allPaintings;
+    newPaintings.sort(
+        function(p1, p2){
+            if(p1.name>p2.name){
+                return 1;
+            }
+            else if(p1.name<p2.name){
+                return -1;
+            }
+            return 0;
+        }
+    );
+    $("#paintings div.col-xl-4").remove();
+    for(let i=0;i<newPaintings.length;i++){
+        $("#paintings").append(`
+        <div class="col-xl-4 col-lg-4 col-md-6">
+        <div class="gallery-item h-100">
+        <img src="${newPaintings[i].pictures[0]}" class="img-fluid" alt="">
+        <div class="gallery-links d-flex align-items-center justify-content-center">
+          <a href="${newPaintings[i].pictures[0]}" title="The Night Watch" class="glightbox preview-link"><i class="bi bi-arrows-angle-expand"></i></a>
+          <a href="single-artwork.html" onclick="setIdType(${newPaintings[i].id}, 'painting')" class="details-link"><i class="bi bi-link-45deg"></i></a>
+        </div>
+      </div>
+      </div>`);
+    }
+});
+
+$("#artistNameSort").click(function(){
+    let newPaintings = allPaintings;
+    newPaintings.sort(
+        function(p1, p2){
+            let a1 = artists.find(a=>a.id==p1.artistId);
+            let a2 = artists.find(a=>a.id==p2.artistId);
+            if(a1.forename>a2.forename){
+                return 1;
+            }
+            else if(a1.forename<a2.forename){
+                return -1;
+            }
+            return 0;
+        }
+    );
+    $("#paintings div.col-xl-4").remove();
+    for(let i=0;i<newPaintings.length;i++){
+        $("#paintings").append(`
+        <div class="col-xl-4 col-lg-4 col-md-6">
+        <div class="gallery-item h-100">
+        <img src="${newPaintings[i].pictures[0]}" class="img-fluid" alt="">
+        <div class="gallery-links d-flex align-items-center justify-content-center">
+          <a href="${newPaintings[i].pictures[0]}" title="The Night Watch" class="glightbox preview-link"><i class="bi bi-arrows-angle-expand"></i></a>
+          <a href="single-artwork.html" onclick="setIdType(${newPaintings[i].id}, 'painting')" class="details-link"><i class="bi bi-link-45deg"></i></a>
+        </div>
+      </div>
+      </div>`);
+    }
+});
