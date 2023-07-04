@@ -89,25 +89,28 @@ $(document).ready(function(){
         }
     });
     $("#sendComment").click(function(){
-        let amount = $("#comment").val();
-        if(amount > 0){
+        let commentText = $("#comment").val();
+        if(commentText != ""){
             let allComments = JSON.parse(localStorage.getItem('comments'));
             allComments.push({
                 artworkId: artwork.id,
                 user: user,
                 artworkType: artwork.type,
-                commentText: comment,
+                commentText: commentText,
             });
             localStorage.setItem('comments', JSON.stringify(allComments));
         }
         if(artwork.type=="painting"){
-            window.location.href("paintings.html");
+            window.location.assign("paintings.html");
+            return;
         }
         else if(artwork.type=="sculpture"){
-            window.location.href("sculptures.html");
+            window.location.assign("sculptures.html");
+            return;
         }
         else{
-            window.location.href("other.html");
+            window.location.assign("other.html");
+            return;
         }
     });
 });

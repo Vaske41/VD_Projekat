@@ -1,4 +1,4 @@
-let allPaintings = JSON.parse(localStorage.getItem("other"));
+let allPaintings = JSON.parse(localStorage.getItem("sculptures"));
 let allArtists = JSON.parse(localStorage.getItem("artists"));
 
 $("#artworkNameSearch").click(function(){
@@ -14,7 +14,7 @@ $("#artworkNameSearch").click(function(){
         <img src="${newPaintings[i].pictures[0]}" class="img-fluid" alt="">
         <div class="gallery-links d-flex align-items-center justify-content-center">
           <a href="${newPaintings[i].pictures[0]}" title="The Night Watch" class="glightbox preview-link"><i class="bi bi-arrows-angle-expand"></i></a>
-          <a href="single-artwork.html" onclick="setIdType(${newPaintings[i].id}, 'other')" class="details-link"><i class="bi bi-link-45deg"></i></a>
+          <a href="pojedinacni-pregled.html" onclick="setIdType(${newPaintings[i].id}, 'sculpture')" class="details-link"><i class="bi bi-link-45deg"></i></a>
         </div>
       </div>
       </div>`);
@@ -42,7 +42,7 @@ $("#artistNameSearch").click(function(){
         <img src="${newPaintings[i].pictures[0]}" class="img-fluid" alt="">
         <div class="gallery-links d-flex align-items-center justify-content-center">
           <a href="${newPaintings[i].pictures[0]}" title="The Night Watch" class="glightbox preview-link"><i class="bi bi-arrows-angle-expand"></i></a>
-          <a href="single-artwork.html" onclick="setIdType(${newPaintings[i].id}, 'other')" class="details-link"><i class="bi bi-link-45deg"></i></a>
+          <a href="pojedinacni-pregled.html" onclick="setIdType(${newPaintings[i].id}, 'sculpture')" class="details-link"><i class="bi bi-link-45deg"></i></a>
         </div>
       </div>
       </div>`);
@@ -72,7 +72,7 @@ $("#artworkNameSort").click(function(){
         <img src="${newPaintings[i].pictures[0]}" class="img-fluid" alt="">
         <div class="gallery-links d-flex align-items-center justify-content-center">
           <a href="${newPaintings[i].pictures[0]}" title="The Night Watch" class="glightbox preview-link"><i class="bi bi-arrows-angle-expand"></i></a>
-          <a href="single-artwork.html" onclick="setIdType(${newPaintings[i].id}, 'other')" class="details-link"><i class="bi bi-link-45deg"></i></a>
+          <a href="pojedinacni-pregled.html" onclick="setIdType(${newPaintings[i].id}, 'sculpture')" class="details-link"><i class="bi bi-link-45deg"></i></a>
         </div>
       </div>
       </div>`);
@@ -102,7 +102,7 @@ $("#artistNameSort").click(function(){
         <img src="${newPaintings[i].pictures[0]}" class="img-fluid" alt="">
         <div class="gallery-links d-flex align-items-center justify-content-center">
           <a href="${newPaintings[i].pictures[0]}" title="The Night Watch" class="glightbox preview-link"><i class="bi bi-arrows-angle-expand"></i></a>
-          <a href="single-artwork.html" onclick="setIdType(${newPaintings[i].id}, 'other')" class="details-link"><i class="bi bi-link-45deg"></i></a>
+          <a href="pojedinacni-pregled.html" onclick="setIdType(${newPaintings[i].id}, 'sculpture')" class="details-link"><i class="bi bi-link-45deg"></i></a>
         </div>
       </div>
       </div>`);
